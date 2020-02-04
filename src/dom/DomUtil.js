@@ -210,7 +210,7 @@ export function testProp(props) {
 // Resets the 3D CSS transform of `el` so it is translated by `offset` pixels
 // and optionally scaled by `scale`. Does not have an effect if the
 // browser doesn't support 3D CSS transforms.
-function setTransform(el, offset, scale) {
+export function setTransform(el, offset, scale) {
 	var pos = offset || new Point(0, 0);
     
 	el.style[TRANSFORM] =
