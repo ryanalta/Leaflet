@@ -210,13 +210,13 @@ export function testProp(props) {
 // Resets the 3D CSS transform of `el` so it is translated by `offset` pixels
 // and optionally scaled by `scale`. Does not have an effect if the
 // browser doesn't support 3D CSS transforms.
-export function setTransform(el, offset, scale) {
+function setTransform(el, offset, scale) {
 	var pos = offset || new Point(0, 0);
-
+    
 	el.style[TRANSFORM] =
-		(Browser.ie3d ?
-			'translate(' + pos.x + 'px,' + pos.y + 'px)' :
-			'translate3d(' + pos.x + 'px,' + pos.y + 'px,0)') +
+		(ie3d ?
+			'translate(' + Math.floor(pos.x) + 'px,' + Math.floor(pos.y) + 'px)' :
+			'translate3d(' + Math.floor(pos.x) + 'px,' + Math.floor(pos.y) + 'px,0)') +
 		(scale ? ' scale(' + scale + ')' : '');
 }
 
